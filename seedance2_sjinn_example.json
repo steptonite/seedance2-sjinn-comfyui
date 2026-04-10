@@ -316,7 +316,7 @@
         }
       ],
       "properties": {
-        "aux_id": "steptonite/seedance2-sjinn-comfyui-node",
+        "aux_id": "steptonite/seedance2-sjinn-comfyui",
         "Node name for S&R": "SjinnSeedance2Node"
       },
       "widgets_values": [
