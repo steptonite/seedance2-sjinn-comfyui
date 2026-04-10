@@ -163,6 +163,13 @@ Already in `.gitignore` — never commit this file.
 
 ---
 
+## 🇺🇦 Community
+
+Ukrainian ComfyUI community — questions, workflows, tips:
+**[t.me/comfyui_ua](https://t.me/comfyui_ua)**
+
+---
+
 ## 📄 License
 
 MIT — see [LICENSE](LICENSE)
