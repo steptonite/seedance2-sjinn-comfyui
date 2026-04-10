@@ -5,7 +5,9 @@
 
 *Run ByteDance Seedance 2.0 video generation directly in ComfyUI via the Sjinn.ai API.*
 
-Connect reference images, videos and audio clips, write a prompt, click Run. The node handles uploads, task creation and polling — you get back a video URL and a first-frame preview.
+Connect reference images, videos and audio clips, write a prompt, click Run. The node handles uploads, task creation and polling — you get back a native VIDEO output plus frame previews.
+
+![Workflow Preview](assets/workflow_preview.jpg)
 
 ---
 
@@ -22,7 +24,7 @@ Connect reference images, videos and audio clips, write a prompt, click Run. The
 | 🎲 **Seed** | Fixed or random |
 | 🛡️ **Smart rescue** | Auto-rewrites prompt if content policy blocks it |
 | 📊 **Progress bar** | Real ComfyUI progress during uploads + generation |
-| 🎞️ **First frame** | IMAGE output for preview or chaining |
+| 🎞️ **Frame outputs** | `first_frame`, `last_frame`, `frames` (IMAGE batch for VHS nodes) |
 
 ---
 
@@ -39,20 +41,20 @@ Connect reference images, videos and audio clips, write a prompt, click Run. The
 **Via ComfyUI Manager (recommended):**
 
 1. Manager → Install via Git URL
-2. Paste: `https://github.com/steptonite/seedance2-sjinn-comfyui-node`
+2. Paste: `https://github.com/steptonite/seedance2-sjinn-comfyui`
 3. Install → restart ComfyUI
 
 **Manual:**
 
 ```bash
 cd ComfyUI/custom_nodes/
-git clone https://github.com/steptonite/seedance2-sjinn-comfyui-node
+git clone https://github.com/steptonite/seedance2-sjinn-comfyui
 
 # Mac / Linux
-../../python/bin/python -m pip install -r seedance2-sjinn-comfyui-node/requirements.txt
+../../python/bin/python -m pip install -r seedance2-sjinn-comfyui/requirements.txt
 
 # Windows portable
-..\..\python_embeded\python.exe -m pip install -r seedance2-sjinn-comfyui-node/requirements.txt
+..\..\python_embeded\python.exe -m pip install -r seedance2-sjinn-comfyui/requirements.txt
 ```
 
 Restart ComfyUI.
@@ -95,7 +97,7 @@ Find **🎬 Seedance 2.0 (Sjinn.ai)** in the **Sjinn.ai** category (or search "S
 6. Enter `session_token` and `api_key`
 7. Queue Prompt — progress bar shows upload → generation → done
 
-**Outputs:** `video_url` (direct MP4 link) · `info` (task details) · `first_frame` (IMAGE)
+**Outputs:** `video` (VIDEO) · `first_frame` · `last_frame` · `frames` (IMAGE batch)
 
 ---
 
@@ -112,7 +114,7 @@ Find **🎬 Seedance 2.0 (Sjinn.ai)** in the **Sjinn.ai** category (or search "S
 | `ratio` | 16:9 | Aspect ratio |
 | `duration` | 5 | Output length in seconds (4–15) |
 | `speed_mode` | pro | `pro` quality / `fast` speed |
-| `face_protection` | True | Preserve face consistency across frames |
+| `accelerate_real_face` | True | Preserve face consistency across frames |
 | `smart_rescue` | True | Auto-fix prompt on content policy block |
 | `seed` | -1 | -1 = random · fixed int = reproducible |
 
